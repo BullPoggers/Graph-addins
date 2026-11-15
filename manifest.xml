@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace https://YOUR-HOST with the HTTPS address where you upload these files (see README.md). -->
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="TaskPaneApp">
+  <Id>e1dc359f-f9d6-4d2e-b9e5-57109fba1f06</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Personal</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Equation Grapher"/>
+  <Description DefaultValue="Type equations like y = x^2 - 2 and insert the graph into your OneNote page."/>
+  <IconUrl DefaultValue="https://YOUR-HOST/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://YOUR-HOST/assets/icon-80.png"/>
+  <SupportUrl DefaultValue="https://YOUR-HOST/taskpane.html"/>
+  <AppDomains>
+    <AppDomain>https://YOUR-HOST</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Notebook"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="OneNoteApi" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://YOUR-HOST/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Notebook">
+        <DesktopFormFactor>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="GrapherGroup">
+                <Label resid="GroupLabel"/>
+                <Icon>
+                  <bt:Image size="16" resid="Icon16"/>
+                  <bt:Image size="32" resid="Icon32"/>
+                  <bt:Image size="80" resid="Icon80"/>
+                </Icon>
+                <Control xsi:type="Button" id="GrapherButton">
+                  <Label resid="ButtonLabel"/>
+                  <Supertip>
+                    <Title resid="ButtonLabel"/>
+                    <Description resid="ButtonTip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon16"/>
+                    <bt:Image size="32" resid="Icon32"/>
+                    <bt:Image size="80" resid="Icon80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>GrapherPane</TaskpaneId>
+                    <SourceLocation resid="PaneUrl"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon16" DefaultValue="https://YOUR-HOST/assets/icon-16.png"/>
+        <bt:Image id="Icon32" DefaultValue="https://YOUR-HOST/assets/icon-32.png"/>
+        <bt:Image id="Icon80" DefaultValue="https://YOUR-HOST/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="PaneUrl" DefaultValue="https://YOUR-HOST/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="Math"/>
+        <bt:String id="ButtonLabel" DefaultValue="Graph equation"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="ButtonTip" DefaultValue="Graph typed equations and insert the picture into the page."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
